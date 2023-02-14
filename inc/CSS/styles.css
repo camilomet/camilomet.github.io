@@ -1,0 +1,190 @@
+body{
+    background-color: #C5E4E7;
+    font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+}
+
+.main{
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    border-radius: 15px;
+    padding: 10px;
+    display: inline-block;
+}
+
+.left{
+    float: left;
+    width: 45%;
+    height: 320px;   
+    margin-left: 10px;
+}
+.right{
+    float: right;
+    width: 50%;
+    height: 320px;
+    background-color: #00474B;
+    border-radius: 15px;
+
+}
+
+.title{
+    font-size: 12px;
+    margin: 5px 0px 0px 0px;
+}
+
+label.title{
+    color: #00474B;
+}
+
+.inputs{
+    width: 95%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #F3F8FB;
+    color:#00474B;
+    text-align: right;
+    font-weight:bold;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.formControl {
+    position: relative;
+}
+
+.formControl i {
+    position: relative;
+    left: 10px;
+    top: -27px;
+    color: #657D7F
+}
+
+::before{
+    top: 10px;
+}
+
+.inputs.left{
+    background-color: #F3F8FB;
+    float: right;
+    color: #00474B;
+    text-align: right;
+}
+
+input:focus{
+    border-color: #5FABA1;
+}
+
+button{
+    color: white;
+    margin: auto;    
+}
+
+.tip{
+    width: 28%;
+    height: 30px;
+    margin: 5px;;
+    background-color: #00474B;
+    color: white;
+    text-align: center;
+}
+
+
+.right .title{
+    color: white;
+}
+.right .subtitle {
+    color: #f3f8fb65
+}
+
+.tipAmount, .tipTotal{
+    font-size: 30PX;
+    float: right;
+}
+
+.subleft {
+    color: #2ABFAC;
+    width: 35%;
+    float: left;    
+    height: 80px !important;
+    margin: 25px 0 0 25px;
+}
+
+.subright{
+    color: #2ABFAC;
+    width: 40%;
+    float: right;    
+    height: 80px !important;
+    margin: 25px 25px 0 0;
+}
+
+
+
+.reset{
+    width: 80%;
+    display: flex;
+    font-weight: bold;
+    background-color: #0D686D;
+    color: #00474B;    
+    justify-content: center;
+    align-items: center;
+}
+
+.attribution {
+    bottom: 0px;
+    position: absolute;
+    margin: 0px auto;
+    width: 100%;
+}
+
+input:focus {
+    outline: 2px solid #26C2AD;
+}
+
+button:hover{
+    background-color: #26C2AD;
+    color: #00474B;
+}
+
+
+::-webkit-input-placeholder {
+    text-align: right;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: right;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    text-align: right;
+}
+
+:-ms-input-placeholder {
+    text-align: right;
+}
+
+@media only screen and (max-width: 625px) {
+    .left {
+        width: 100%;
+        float: left;
+    }
+    .right{
+        width: 100%;
+        float: left;
+    }
+
+input.tip.inputs.left {
+    width: 106.39px;
+    float: right;
+    margin-right: 26px;
+}
+}
