@@ -1,3 +1,4 @@
+"use strict";
 function CheckBill() {
   document.getElementById("num_people").readOnly = false;
 }

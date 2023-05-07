@@ -1,83 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="inc/CSS/styles.css">
-  <title>Frontend Mentor | Tip calculator app</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css">
-<script src="inc/JS/function.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="inc/CSS/styles.css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.3.0/css/all.css"
+    />
+    <script src="inc/JS/function.js"></script>
 
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-
-  <div class="main">
-    <div class="left">
-      <label class="title">Bill</label><br>
-      <div class="formControl">
-        <input type="number" id="bill" class="inputs" placeholder="0" onchange="CheckBill()"/>
-        <i class="fa-solid fa-dollar-sign"></i>
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="left">
+        <label class="title">Bill</label><br />
+        <div class="formControl">
+          <input
+            type="number"
+            id="bill"
+            class="inputs"
+            placeholder="0"
+            onchange="CheckBill()"
+          />
+          <i class="fa-solid fa-dollar-sign"></i>
+        </div>
+        <br />
+        <label class="title">Select Tip %</label>
+        <br />
+        <div class="buttons">
+          <button class="tip inputs" onclick="Calculate(5)">5%</button>
+          <button class="tip inputs" onclick="Calculate(10)">10%</button>
+          <button class="tip inputs" onclick="Calculate(15)">15%</button>
+          <button class="tip inputs" onclick="Calculate(25)">25%</button>
+          <button class="tip inputs" onclick="Calculate(50)">50%</button>
+          <input
+            class="tip inputs left"
+            type="number"
+            placeholder="Custom"
+            min="1"
+            max="100"
+            id="custom"
+            onchange="getValue('custom')"
+          />
+        </div>
+        <br />
+        <br />
+        <div class="formControl">
+          <label class="title">Number of People</label>
+          <br />
+          <input
+            type="number"
+            id="num_people"
+            class="inputs"
+            placeholder="0"
+            readonly
+            onchange="CheckNumPeople()"
+          />
+          <i class="fa-solid fa-user"></i>
+        </div>
       </div>
-      <br>
-      <label class="title">Select Tip %</label>
-      <br>
-      <div class="buttons">
-        <button class="tip inputs" onclick="Calculate(5)">5%</button>
-        <button class="tip inputs" onclick="Calculate(10)">10%</button>
-        <button class="tip inputs" onclick="Calculate(15)">15%</button>
-        <button class="tip inputs" onclick="Calculate(25)">25%</button>
-        <button class="tip inputs" onclick="Calculate(50)">50%</button>
-        <input  class="tip inputs left" type="number" placeholder="Custom" min="1" max="100" id="custom" onchange="getValue('custom')"/>
-      </div>
-      <br>
-      <br>
-      <div class="formControl">
-      <label class="title">Number of People</label>
-      <br>
-      <input type="number" id="num_people" class="inputs" placeholder="0" readonly onchange="CheckNumPeople()"/>
-      <i class="fa-solid fa-user"></i>
+
+      <div class="right">
+        <div class="subleft">
+          <label class="title">Tip Amount</label>
+          <br />
+          <label class="subtitle">/ person</label>
+        </div>
+        <div class="subright">
+          <label class="tipAmount" id="tipAmount">$0.00</label>
+        </div>
+
+        <br /><br /><br /><br /><br /><br />
+
+        <div class="subleft">
+          <label class="title">Total</label>
+          <br />
+          <label class="subtitle">/ person</label>
+        </div>
+        <div class="subright">
+          <label class="tipTotal" id="tipTotal">$0.00</label>
+        </div>
+
+        <br /><br />
+        <button
+          id="reset"
+          class="inputs reset"
+          type="button"
+          onclick="Reset()"
+          disabled
+        >
+          RESET
+        </button>
       </div>
     </div>
-
-    <div class="right">
-      <div class="subleft">
-        <label class="title">Tip Amount</label>
-        <br>
-        <label class="subtitle">/ person</label>
-      </div>
-      <div class="subright">
-        <label class="tipAmount" id="tipAmount">$0.00</label>
-      </div>
-
-      <br><br><br><br><br><br>
-
-      <div class="subleft">
-        <label class="title">Total</label>
-        <br>
-        <label class="subtitle">/ person</label>
-      </div>
-      <div class="subright">
-        <label class="tipTotal" id="tipTotal">$0.00</label>
-      </div>
-      
-      <br><br>
-      <button id="reset" class="inputs reset" type="button" onclick="Reset()" disabled>RESET</button>
-      
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Cristian Uribe</a>.
     </div>
-
-  </div>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Cristian Uribe</a>.
-  </div>
-</body>
+  </body>
 </html>
