@@ -1,42 +1,42 @@
 "use strict";
+
+let num_people = document.querySelector("#num_people");
+let custom = document.querySelector("#custom");
+let bill = document.querySelector("#bill");
+
 function CheckBill() {
-  document.getElementById("num_people").readOnly = false;
+  num_people.readOnly = false;
 }
 
 function CheckNumPeople() {
-  document.getElementById("reset").disabled = false;
+  document.querySelector("#reset").disabled = false;
 }
 function getValue(custom) {
-  value = document.getElementById("custom").value;
-  Calculate(value);
+  Calculate(custom.value);
 }
 
 function ifempty() {
-  bill = document.getElementById("bill").value;
-  num_people = document.getElementById("num_people").value;
-  if (bill == 0) {
+  if (bill.value == 0) {
     document.getElementById("bill").style.outline = "thick solid red";
-  } else if (num_people == 0) {
+  } else if (num_people.value == 0) {
     document.getElementById("bill").style.outline = "none";
-    document.getElementById("num_people").style.outline = "thick solid red";
+    num_people.style.outline = "thick solid red";
   } else {
-    document.getElementById("num_people").style.outline = "none";
+    num_people.style.outline = "none";
   }
 }
 
 function Calculate(value) {
   ifempty();
-  bill = document.getElementById("bill").value;
-  num_people = document.getElementById("num_people").value;
-  tip = (bill * value) / 100 / num_people;
-  tipTotal = bill / 5 + tip;
+  let tip = (bill.value * value) / 100 / num_people.value;
+  let tipTotal = bill.value / num_people.value + tip;
   document.getElementById("tipAmount").innerHTML = tip.toFixed(2);
   document.getElementById("tipTotal").innerHTML = tipTotal.toFixed(2);
 }
 
-function Reset() {
+document.querySelector("#reset").addEventListener("click", function () {
   document.getElementById("tipAmount").innerHTML = "$0.00";
   document.getElementById("tipTotal").innerHTML = "$0.00";
   document.getElementById("bill").value = 0;
   document.getElementById("tipTotal").value = "";
-}
+});
